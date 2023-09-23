@@ -1,4 +1,4 @@
-const nomes = Array('Alice', 'Bob', 'Carlos');
+const nomes = Array();
 
 class RepositoryExercicio{
 

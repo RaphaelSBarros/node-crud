@@ -23,7 +23,7 @@ class ServicoExercicio{
     Alterar(index, nome){
         if(!nome){
             throw new Error("Favor preencher o nome.");
-        }else if(!index || isNaN(index)){
+        }else if(index < 0 || isNaN(index)){
             throw new Error("Favor preencher corretamente o index");
         }
 
@@ -31,7 +31,7 @@ class ServicoExercicio{
     }
 
     Deletar(index){
-        if(!index){
+        if(index < 0 || isNaN(index) || index > this.PegarTodos().length){
             throw new Error("Favor preencher corretamente o index");
         }
         repositorio.Deletar(index)

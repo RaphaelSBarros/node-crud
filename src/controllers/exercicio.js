@@ -7,33 +7,34 @@ class ControllerExercicio{
     PegarUm(req, res){
         try{
             const result = servico.PegarUm(req.params.index);
+
             res.status(200).json({
-                nomes: result
-            })
+                nome: result
+            });
         }catch(error){
-            console.log(error);
-            res.status(500).json({ message: error});
+            res.status(500).json({ message: "Erro ao pegar um nome"});
         }
     }
 
     PegarTodos(req, res){
         try{
             const result = servico.PegarTodos();
-            res.status(200).json({
+            res.status(201).json({
                 nomes: result
             })
         }catch(error){
             console.log(error);
-            res.status(500).json({ message: error});
+            res.status(500).json({ message: "Erro ao listar nomes"});
         }
     }
 
     Add(req, res){
         try{
-            const result = servico.Add(req.body.nome);
+            servico.Add(req.body.nome);
+
             res.status(201).json({
-                nomes: result
-            })
+                message: "Adicionado com sucesso"
+            });
         }catch(error){
             console.log(error);
             res.status(500).json({ message: error});
@@ -42,25 +43,25 @@ class ControllerExercicio{
 
     Alterar(req, res){
         try{
-            const result = servico.Alterar(req.body.index, req.body.nome);
-            res.status(201).json({
-                nomes: result
+            servico.Alterar(req.params.index, req.params.nome);
+
+            res.status(200).json({
+                message: "Alterado com sucesso"
             })
         }catch(error){
-            console.log(error);
-            res.status(500).json({ message: error});
+            res.status(500).json({ message: "Erro ao alterar"});
         }
     }
 
     Deletar(req, res){
         try{
-            const result = servico.Deletar(req.body.index);
-            res.status(201).json({
-                nomes: result
+            servico.Deletar(req.params.index);
+            res.status(200).json({
+                message: "Deletado com sucesso"
             })
         }catch(error){
             console.log(error);
-            res.status(500).json({ message: error});
+            res.status(500).json({ message: "Erro ao deletar"});
         }
     }
 }
