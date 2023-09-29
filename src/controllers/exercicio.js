@@ -16,9 +16,9 @@ class ControllerExercicio{
         }
     }
 
-    PegarTodos(req, res){
+    async PegarTodos(req, res){
         try{
-            const result = servico.PegarTodos();
+            const result = await servico.PegarTodos();
             res.status(201).json({
                 nomes: result
             })
@@ -28,9 +28,9 @@ class ControllerExercicio{
         }
     }
 
-    Add(req, res){
+    async Add(req, res){
         try{
-            servico.Add(req.body.nome);
+            servico.Add(req.body.id, req.body.nome, req.body.email, req.body.senha);
 
             res.status(201).json({
                 message: "Adicionado com sucesso"
@@ -53,9 +53,9 @@ class ControllerExercicio{
         }
     }
 
-    Deletar(req, res){
+    async Deletar(req, res){
         try{
-            servico.Deletar(req.params.index);
+            servico.Deletar(req.params.id);
             res.status(200).json({
                 message: "Deletado com sucesso"
             })

@@ -9,20 +9,34 @@ class RepositoryExercicio{
         });
     }
 
-    PegarTodos(){
-        return nomes;
+    async PegarTodos(){
+        return Pessoa.findAll();
     }
 
-    Add(nome){
-        return nomes.push(nome);
+    async Add(id, nome, email, senha){
+        return Pessoa.create({
+            id,
+            nome,
+            email,
+            senha
+        }) 
+    }
+ 
+    async Alterar(id, nome, email, senha){
+        return Pessoa.update({
+            nome,
+            email,
+            senha
+        },{
+            where: { id }
+        }
+        )
     }
 
-    Alterar(index, nome){
-        nomes[index] = nome;
-    }
-
-    Deletar(index){
-        nomes.splice(index, 1);
+    async Deletar(id){
+        return Pessoa.destroy({
+            where: { id }
+        });
     }
 
 }

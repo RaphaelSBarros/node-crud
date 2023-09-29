@@ -9,15 +9,15 @@ class ServicoExercicio{
         return repositorio.PegarUm(id);
     }
 
-    PegarTodos(){
+    async PegarTodos(){
         return repositorio.PegarTodos();
     }
 
-    Add(nome){
-        if(!nome){
-            throw new Error("Favor preencher o nome.");
+    async Add(id, nome, email, senha){
+        if(isNaN(id) || nome == "" || email == "" || senha == ""){
+            throw new Error("Favor preencher os dados.");
         }
-        repositorio.Add(nome);
+        repositorio.Add(id, nome, email, senha);
     }
 
     Alterar(index, nome){
@@ -30,11 +30,11 @@ class ServicoExercicio{
         repositorio.Alterar(index, nome);
     }
 
-    Deletar(index){
-        if(index < 0 || isNaN(index) || index > this.PegarTodos().length){
+    async Deletar(id){
+        if(id < 0 || isNaN(id) || id > this.PegarTodos().length){
             throw new Error("Favor preencher corretamente o index");
         }
-        repositorio.Deletar(index)
+        repositorio.Deletar(id)
     }
 }
 
