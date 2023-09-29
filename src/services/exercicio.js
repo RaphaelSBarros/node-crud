@@ -20,19 +20,18 @@ class ServicoExercicio{
         repositorio.Add(id, nome, email, senha);
     }
 
-    Alterar(index, nome){
-        if(!nome){
+    async Alterar(id, nome, email, senha){
+        if(nome == "" || email == "" || senha == ""){
             throw new Error("Favor preencher o nome.");
-        }else if(index < 0 || isNaN(index)){
-            throw new Error("Favor preencher corretamente o index");
+        }else if(id < 0 || isNaN(id)){
+            throw new Error("Favor preencher corretamente o id");
         }
-
-        repositorio.Alterar(index, nome);
+        repositorio.Alterar(id, nome, email, senha);
     }
 
     async Deletar(id){
         if(id < 0 || isNaN(id) || id > this.PegarTodos().length){
-            throw new Error("Favor preencher corretamente o index");
+            throw new Error("Favor preencher corretamente o id");
         }
         repositorio.Deletar(id)
     }

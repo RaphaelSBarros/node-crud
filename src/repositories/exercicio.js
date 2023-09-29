@@ -1,4 +1,3 @@
-const nomes = Array();
 const Pessoa = require("../models/exercicio.js");
 
 class RepositoryExercicio{

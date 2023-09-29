@@ -41,9 +41,9 @@ class ControllerExercicio{
         }
     }
 
-    Alterar(req, res){
+    async Alterar(req, res){
         try{
-            servico.Alterar(req.params.index, req.params.nome);
+            servico.Alterar(req.params.id, req.body.nome, req.body.email, req.body.senha);
 
             res.status(200).json({
                 message: "Alterado com sucesso"
