@@ -5,8 +5,8 @@ const repositorio = new RepositoryExercicio();
 
 class ServicoExercicio{
     
-    PegarUm(index){
-        return repositorio.PegarUm(index);
+    async PegarUm(id){
+        return repositorio.PegarUm(id);
     }
 
     PegarTodos(){

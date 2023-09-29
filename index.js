@@ -1,8 +1,11 @@
 const express = require("express");
 const router = require("./src/routes/exercicio");
+const Pessoa = require("./src/models/exercicio");
 
 const app = express();
 const port = 3000;
+
+new Pessoa();
 
 app.use(express.json());
 app.use(router);

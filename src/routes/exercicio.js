@@ -6,9 +6,9 @@ const controller = new ControllerExercicio();
 const router = express.Router();
 
 router.get('/api/nomes/', controller.PegarTodos);
-router.get('/api/nome/:index', controller.PegarUm);
+router.get('/api/nome/:id', controller.PegarUm);
 router.post('/api/nome', controller.Add);
-router.put('/api/nome/:index', controller.Alterar);
-router.delete('/api/nome/:index', controller.Deletar);
+router.put('/api/nome/:id', controller.Alterar);
+router.delete('/api/nome/:id', controller.Deletar);
 
 module.exports = router;

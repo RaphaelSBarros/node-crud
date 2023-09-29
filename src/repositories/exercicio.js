@@ -1,9 +1,12 @@
 const nomes = Array();
+const Pessoa = require("../models/exercicio.js");
 
 class RepositoryExercicio{
 
-    PegarUm(index){
-        return nomes[index];
+    async PegarUm(id){
+        return Pessoa.findOne({
+            where: { id }
+        });
     }
 
     PegarTodos(){

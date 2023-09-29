@@ -4,9 +4,9 @@ const servico = new ServicoExercicio();
 
 class ControllerExercicio{
     
-    PegarUm(req, res){
+    async PegarUm(req, res){
         try{
-            const result = servico.PegarUm(req.params.index);
+            const result = await servico.PegarUm(req.params.id);
 
             res.status(200).json({
                 nome: result
