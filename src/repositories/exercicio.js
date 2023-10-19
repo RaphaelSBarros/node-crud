@@ -8,6 +8,12 @@ class RepositoryExercicio{
         });
     }
 
+    async PegarUmPorEmail(email){
+        return Pessoa.findOne({
+            where: { email }
+        });
+    }
+
     async PegarTodos(){
         return Pessoa.findAll();
     }
